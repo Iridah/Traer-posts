@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    color: #373A3C;
+}
+
+#btn {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    vertical-align: middle;
+    padding: 60px;
+}
+#btn0 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*estilo de prueba para la lista*/
+li {
+    background: #209cee;
+    color: white;
+    padding: 1rem;
+    border: 1px solid black;
+    transition: 0.2s all;
+    cursor: move;
+};
+
+li.zone {
+    opacity: 0.8;
+    height: 3rem;
+};

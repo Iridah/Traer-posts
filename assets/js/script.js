@@ -11,12 +11,13 @@ fetch("https://jsonplaceholder.typicode.com/posts?limit=20", requestOptions)
 
     /*event listener*/
 const boton = document.getElementById('btn0').addEventListener("click", function(){
+
 /*funcion traer(?)*/
     setTimeout (() => {
         alert("Cargando informacion, un momento...");
-    }, 100);
+    }, 10);
     setTimeout(() => {
-       resolve(result); 
+        resolve(result); 
     }, 3000);
 });
 
@@ -31,7 +32,7 @@ async function getResultado (){
     };
 };
 
-/*menu ul(?)*/
+/*menu ul(?) - idea original: https://programadorwebvalencia.com/javascript-reordenar-lista-arrastrando-y-soltando/*/
 const menuList = document.querySelector("#list");
 let menuItems = [];
 function renderUpdateList(list, target) {
@@ -51,10 +52,3 @@ function renderUpdateList(list, target) {
 
 
 
-
-// const doAsyncStuffWithCallback = () => {
-//     const resultado =
-//     return setTimeout(() => {
-//         callback()
-//     }, 500)
-// }

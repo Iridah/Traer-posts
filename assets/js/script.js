@@ -1,54 +1,37 @@
-/*fetch*/
-const requestOptions = {
-    method: "GET",
-    redirect: "follow"
-    };
-
-fetch("https://jsonplaceholder.typicode.com/posts?limit=20", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
-
-    /*event listener*/
-const boton = document.getElementById('btn0').addEventListener("click", function(){
+/*event listener*/
+const boton = document.getElementById('btn0').addEventListener("click", getResultado);
+const menuList = document.getElementById("list");
 
 /*funcion traer(?)*/
+function tiempo (){
     setTimeout (() => {
         alert("Cargando informacion, un momento...");
     }, 10);
-    setTimeout(() => {
-        resolve(result); 
-    }, 3000);
-});
+}
 
+/*async y await*/
 async function getResultado (){
     const url = "https://jsonplaceholder.typicode.com/posts";
     try {
         const resultado = await fetch(url);
-        const data = await response.json()
-        console.log(data)
+        const data = await resultado.json()
+        const limiter = data.slice(0,20);
+        console.log(limiter)
+        limiter.forEach(value =>{
+            const myLi = document.createElement("li");
+            const mytitle = document.createElement("h1");
+            mytitle.textContent = value.title;
+            myLi.appendChild(mytitle);
+            const myBody = document.createElement('p');
+            myBody.textContent = value.body;
+            myLi.appendChild(myBody);
+            menuList.appendChild(myLi);
+        });
+        tiempo(); 
     } catch (error) {
         console.log(error);
     };
 };
-
-/*menu ul(?) - idea original: https://programadorwebvalencia.com/javascript-reordenar-lista-arrastrando-y-soltando/*/
-const menuList = document.querySelector("#list");
-let menuItems = [];
-function renderUpdateList(list, target) {
-    target.textContent = "";
-    menuItems = [];
-    list.forEach((value, index) => {
-        const myLi = document.createElement("li");
-        myLi.textContent = value;
-        myLi.dataset.key = index;
-        if (value === undefined)
-            myLi.classList.add(classZone);
-            myLi.style.display = "none";
-        target.appendChild(myLi);
-        menuItems.push(myLi);
-    });
-}
 
 
 
